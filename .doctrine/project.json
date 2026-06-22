@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "repo": "SylphxAI/sylphlab",
+    "name": "SylphLab",
+    "lifecycle": "incubating",
+    "layer": "research",
+    "summary": "SylphLab is an incubating research repository whose current default branch contains only minimal documentation and project control-plane metadata.",
+    "goals": [
+      "Preserve a minimal research workspace for future SylphLab experiments.",
+      "Require future code, docs, CI, delivery, and commercial surfaces to declare their boundaries before production-shaped work begins."
+    ],
+    "nonGoals": [
+      "Infer production behavior, deployment, pricing, package release, or runtime obligations from the current minimal repository state.",
+      "Serve as a hidden dependency for another product without a declared public surface."
+    ]
+  },
+  "boundaries": {
+    "owns": [
+      {
+        "name": "sylphlab-research-placeholder",
+        "description": "Minimal research documentation and project control-plane metadata for future SylphLab experiments."
+      }
+    ],
+    "doesNotOwn": [
+      "Production product behavior, deploy infrastructure, package release, pricing, billing, or runtime operations.",
+      "Other repositories' research artifacts or product-specific features.",
+      "Enterprise doctrine or organization-wide workflow policy."
+    ],
+    "publicSurfaces": [
+      {
+        "type": "documentation",
+        "name": "Privacy documentation",
+        "location": "Privacy.md"
+      },
+      {
+        "type": "manifest",
+        "name": "Project manifest",
+        "location": ".doctrine/project.json"
+      }
+    ],
+    "allowedDependencies": [
+      {
+        "repo": "SylphxAI/doctrine",
+        "surface": "enterprise engineering doctrine",
+        "direction": "downward"
+      }
+    ],
+    "forbiddenCouplings": [
+      "Do not depend on this repository as a product runtime surface until a public contract is declared.",
+      "Do not add active product behavior without updating PROJECT.md, .doctrine/project.json, and validation.",
+      "Do not claim deployment, package publication, or commercial readiness from the current minimal repository state."
+    ]
+  },
+  "documentation": {
+    "adr": {
+      "path": "PROJECT.md",
+      "status": "planned"
+    },
+    "specs": {
+      "path": "Privacy.md",
+      "status": "present"
+    },
+    "catalog": {
+      "path": "PROJECT.md",
+      "status": "present"
+    },
+    "runbooks": {
+      "path": "AGENTS.md",
+      "status": "present"
+    },
+    "generatedReferences": {
+      "path": "not-applicable: no generated references",
+      "status": "not-applicable"
+    }
+  },
+  "delivery": {
+    "ciModel": "none",
+    "requiredContexts": [],
+    "deployPath": "No CI, release, package, or hosted deploy path is declared in the current repository state.",
+    "productionProof": "No production proof is declared. Current proof is local project-control-plane audit only.",
+    "recoveryClass": "source-revertable"
+  },
+  "commercial": {
+    "status": "not-applicable",
+    "decisionHome": "not-applicable: no commercial surface declared",
+    "pricingSourceOfTruth": "not-applicable: no pricing surface declared",
+    "metricsSourceOfTruth": "not-applicable: no product metrics declared",
+    "requiredRecords": [
+      "none"
+    ],
+    "guardrails": [
+      "Any future commercial or product surface must add explicit decision records before launch."
+    ]
+  },
+  "adoption": {
+    "status": "baseline",
+    "gaps": [
+      {
+        "id": "active-project-definition",
+        "description": "Future active work must add README/product docs, CI, delivery proof, and updated boundaries before this repository is treated as active.",
+        "owner": "SylphxAI/sylphlab",
+        "target": "before active development"
+      }
+    ]
+  }
+}
